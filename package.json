@@ -1,0 +1,31 @@
+{
+  "author": "Alex Kahn",
+  "description": "Tiny error helpers for @absolutejs Eden Treaty clients. Unwraps Eden's { status, value } failure shape into a real Error that KEEPS the HTTP status, so call sites stop dropping it. Zero dependencies.",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "type": "module",
+  "name": "@absolutejs/eden",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/absolutejs/eden.git"
+  },
+  "homepage": "https://github.com/absolutejs/eden",
+  "bugs": {
+    "url": "https://github.com/absolutejs/eden/issues"
+  },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "rm -rf dist && bun build src/index.ts --outdir dist --sourcemap && tsc --emitDeclarationOnly --project tsconfig.json",
+    "typecheck": "tsc --noEmit"
+  },
+  "types": "./dist/index.d.ts",
+  "version": "0.1.0",
+  "devDependencies": {
+    "@types/bun": "^1.3.14",
+    "typescript": "^6.0.3"
+  }
+}
