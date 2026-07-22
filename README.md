@@ -28,6 +28,29 @@ try {
 - `apiErrorStatus(error)` — the HTTP status carried by an error, if any.
 - `isPaywallError(error)` — true for a 402 Payment Required.
 
+## Pagination
+
+List endpoints can share one bounded request/response contract without hiding
+their concrete database query:
+
+```ts
+import {
+  normalizeOffsetPage,
+  type OffsetPage,
+} from "@absolutejs/eden";
+
+const { limit, offset } = normalizeOffsetPage(request, {
+  defaultLimit: 25,
+  maxLimit: 100,
+});
+
+const response: OffsetPage<User> = { data: rows, total };
+```
+
+`CursorPage<T>` is the corresponding envelope for stable keyset pagination.
+`getPageCount`, `clampPageIndex`, and `getPageRange` keep client pagination math
+consistent with the server contract.
+
 Zero dependencies; works in the browser and on the server.
 
 Apache-2.0
