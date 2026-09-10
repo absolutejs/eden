@@ -17,15 +17,22 @@
   "bugs": {
     "url": "https://github.com/absolutejs/eden/issues"
   },
-  "files": ["dist", "README.md"],
+  "files": [
+    "CHANGELOG.md",
+    "README.md",
+    "changelog.json",
+    "dist"
+  ],
   "scripts": {
     "build": "rm -rf dist && bun build src/index.ts --outdir dist --sourcemap && tsc --emitDeclarationOnly --project tsconfig.json",
     "test": "bun test",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check:package": "absolute-changelog check"
   },
   "types": "./dist/index.d.ts",
   "version": "0.2.0",
   "devDependencies": {
+    "@absolutejs/changelog": "^0.1.2",
     "@types/bun": "^1.3.14",
     "typescript": "^6.0.3"
   }
