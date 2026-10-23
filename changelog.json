@@ -5,6 +5,24 @@
 		{
 			"changes": [
 				{
+					"kind": "fixed",
+					"summary": "Preserve HTTP status and safe field-level API guidance across admin and member flows; suppress technical server payloads and generic error masking",
+					"symbols": [
+						"ApiError",
+						"ApiFieldError",
+						"apiError",
+						"apiErrorMessage",
+						"apiErrorFields",
+						"apiErrorStatus"
+					]
+				}
+			],
+			"date": "2026-10-23",
+			"version": "0.3.1"
+		},
+		{
+			"changes": [
+				{
 					"kind": "added",
 					"summary": "withResponseDeadline: a fetcher for Eden Treaty that gives reads a deadline for their response headers and aborts with ResponseDeadlineError past it, so a request stalled on a bad network fails and can be retried instead of hanging; streamed bodies and writes are left alone",
 					"symbols": [
